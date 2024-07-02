@@ -14,10 +14,6 @@ load_dotenv('.env') # Load environment variables
 app = Flask(__name__)
 app.secret_key = os.getenv('SECRET_KEY')
 
-# Spotify API credentials
-CLIENT_ID_SPOTIFY = os.getenv('CLIENT_ID_SPOTIFY')
-CLIENT_SECRET_SPOTIFY = os.getenv('CLIENT_SECRET_SPOTIFY')
-
 # session management
 @app.before_request
 def before_request():

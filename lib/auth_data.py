@@ -14,4 +14,8 @@ callback = os.getenv('CALLBACK_URL')
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID_SPOTIFY, client_secret=CLIENT_SECRET_SPOTIFY, scope=scope, redirect_uri=callback))
 
 # Authenticate with Youtube Music
-ytmusic = YTMusic('oauth.json')
+try:
+    ytmusic = YTMusic('oauth.json')
+except:
+    ytmusic = YTMusic()
+    print("Not logged in")
