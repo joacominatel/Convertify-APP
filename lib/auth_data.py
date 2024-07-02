@@ -10,7 +10,7 @@ CLIENT_ID_SPOTIFY = os.getenv('CLIENT_ID_SPOTIFY')
 CLIENT_SECRET_SPOTIFY = os.getenv('CLIENT_SECRET_SPOTIFY')
 
 scope = 'playlist-read-private playlist-read-collaborative playlist-modify-public playlist-modify-private'
-callback = 'http://localhost:8000/callback'
+callback = os.getenv('CALLBACK_URL')
 sp = spotipy.Spotify(auth_manager=SpotifyOAuth(client_id=CLIENT_ID_SPOTIFY, client_secret=CLIENT_SECRET_SPOTIFY, scope=scope, redirect_uri=callback))
 
 # Authenticate with Youtube Music
