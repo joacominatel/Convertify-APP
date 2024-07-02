@@ -5,10 +5,8 @@ Convertify:
 """
 import os, datetime, time
 from dotenv import load_dotenv
-from ytmusicapi import YTMusic
-import spotipy
-from spotipy.oauth2 import SpotifyOAuth
-from flask import Flask, redirect, request, session, url_for, render_template, jsonify
+from flask import Flask, session, render_template, jsonify
+from lib.auth_data import sp, ytmusic
 
 load_dotenv('.env') # Load environment variables
 
@@ -20,9 +18,6 @@ app.secret_key = os.getenv('SECRET_KEY')
 CLIENT_ID_SPOTIFY = os.getenv('CLIENT_ID_SPOTIFY')
 CLIENT_SECRET_SPOTIFY = os.getenv('CLIENT_SECRET_SPOTIFY')
 
-# Authenticate with Spotify and Youtube Music
-ytmusic = YTMusic('oauth.json')
-
 # session management
 @app.before_request
 def before_request():
@@ -30,9 +25,11 @@ def before_request():
         session['username'] = None
 
 # Import authentication routes
-from routes import auth_bp, sp
+from routes import auth_bp
+
 app.register_blueprint(auth_bp)
 
+# import func
 def convertToYoutubeMusic(playlist_id):
         try:
             playlist_name = sp.playlist(playlist_id)['name']
