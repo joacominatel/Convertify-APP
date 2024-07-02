@@ -1,0 +1,14 @@
+# python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# dotenv
+venv/
+.env
+.env.dev
+.cache
+
+# data
+oauth.json
