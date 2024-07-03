@@ -2,6 +2,9 @@
 
 Convertify es una aplicación web sencilla que convierte listas de reproducción de Spotify a YouTube Music. Utiliza la API de Spotify y ytmusicapi (una API no oficial para YouTube Music) para realizar la conversión.
 
+<!-- imagen -->
+![Imagen_ejemplo](/assets/imagen-readme.jpg)
+
 ## Requisitos previos
 
 - Python 3.9 o superior
